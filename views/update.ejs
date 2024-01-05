@@ -1,0 +1,14 @@
+<%-include('base',{Title:"Update"})%>
+<div class="container mx-auto text-center mt-5 d-flex align-items-center justify-content-center flex-column">
+    <div class="card p-3" style="width:22rem;">
+        <h2>UPDATE TASK</h2>
+        <div class="card-body">
+            <form action="/update/<%=task._id%>" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" name="task" class="form-control" value="<%=task.task%>">
+                    <button type="submit" class = "btn btn-outline-success">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

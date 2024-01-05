@@ -1,0 +1,32 @@
+<%-include('base',{Title:"Home"})%>
+    <div class="container mx-auto text-center mt-5 d-flex align-items-center justify-content-center flex-column">
+        <div class="card p-3" style="width:22rem;">
+            <h2>TODO APP</h2>
+            <div class="card-body">
+                <form action="/add" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" name="task" class="form-control">
+                        <button type="submit" class = "btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="container d-flex align-items-center justify-content-center flex-column">
+                <%if (tasks.length > 0) {%>
+                    <h4>TODOS</h4>
+                    <ul class="list-group border border-3 rounded p-3" style="width:18rem;">
+                        <%for(let i=0;i<tasks.length;i++){%>
+                            <li class="list-group-item shadow">
+                                <%=tasks[i].task%>
+                                &nbsp;
+                                <a href="/delete/<%=tasks[i]._id%>" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                                <a href="/update/<%=tasks[i]._id%>" class="btn btn-outline-success"><i class="bi bi-pen-fill"></i></a>
+                            </li>
+                        <%}%>
+                    </ul>
+                <%} else {%>
+                    No tasks add one
+                <%}%>
+            </div>
+        </div>
+    </div>
+
